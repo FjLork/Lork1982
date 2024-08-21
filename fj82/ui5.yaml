@@ -1,0 +1,33 @@
+specVersion: "3.1"
+metadata:
+  name: lorkgroup.fj82
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - url: https://services.odata.org
+            path: /v2
+            destination: northwind
+          - url: https://services.odata.org
+            path: /v2
+            destination: northwind
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: lorkgroup.fj82
+        ui5Theme: sap_horizon
