@@ -16,7 +16,10 @@ sap.ui.define([
 		//------------------------------------------------------------------------------//
 		//------------------------------------------------------------------------------//
 		onInit: function () {
+
 			this._loadCountries();  // Carga los datos de países
+			this.oEventBus = sap.ui.getCore().getEventBus();
+
 		},
 
 		//------------------------------------------------------------------------------//
@@ -138,6 +141,7 @@ sap.ui.define([
 		onNavToDetails: function (oEvent) {
 			let oItem = oEvent.getSource(),  // Obtiene el item que disparó el evento
 				oBindingContext = oItem.getBindingContext("northwind");  // Obtiene el contexto de datos del empleado seleccionado
+				console.log(oBindingContext);
 			this.oEventBus.publish("flexible", "showEmployeeDetails", oBindingContext);  // Publica un evento para mostrar los detalles del empleado
 		}
 

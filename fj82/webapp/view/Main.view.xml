@@ -12,7 +12,7 @@
 
                     <pages>
 
-                        <Page showHeader="false" showFooter="true">
+                        <Page showHeader="false">
                         
                             <content>
 
