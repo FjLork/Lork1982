@@ -70,7 +70,7 @@
 
                     <Toolbar>
 
-                        <Title text="{i18n>incidence} {= ${northwind>Country} !== 'US' ? ${i18n>europe} : ${i18n>us} }"/>
+                        <Title text="{i18n>incidence} {= ${northwind>Country} !== 'USA' ? ${i18n>europe} : ${i18n>us} }"/>
                         <ToolbarSpacer/>
                         <Button text="{i18n>createIncidence}"
                                 press="onCreateIncidence"/>
